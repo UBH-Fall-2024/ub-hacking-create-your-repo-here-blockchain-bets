@@ -1,40 +1,44 @@
 import pandas as pd
-import numpy as np
+import os
 
-# Load the CSV files
-schedule_df = pd.read_csv('nba_schedule.csv')
-standings_df = pd.read_csv('nba_standings.csv')
+# Function to load and check if a file exists and is not empty
 
-# Rename 'sr_id' in standings_df to 'team_id' for merging consistency
-standings_df = standings_df.rename(columns={'sr_id': 'team_id'})
 
-# Placeholder: Simulate historical performance metrics for each team
-# Here we add sample columns for win-loss records, average points scored, and points allowed
-standings_df['win_loss_ratio'] = np.random.uniform(0.3, 0.7, len(standings_df))
-standings_df['avg_points_scored'] = np.random.randint(90, 120, len(standings_df))
-standings_df['avg_points_allowed'] = np.random.randint(90, 120, len(standings_df))
+def load_csv(filepath):
+    if os.path.exists(filepath) and os.path.getsize(filepath) > 0:
+        df = pd.read_csv(filepath)
+        if df.empty:
+            print(f"Warning: {filepath} is empty after loading.")
+        return df
+    else:
+        print(f"Warning: {filepath} is empty or does not exist.")
+        return pd.DataFrame()  # Return empty DataFrame if file is empty
 
-# Add hypothetical columns for team identifiers
-schedule_df['home_team_id'] = standings_df['team_id'].sample(n=len(schedule_df), replace=True).values
-schedule_df['away_team_id'] = standings_df['team_id'].sample(n=len(schedule_df), replace=True).values
 
-# Merge standings information for home and away teams based on 'team_id'
-schedule_with_home_team_info = schedule_df.merge(
-    standings_df, left_on='home_team_id', right_on='team_id', suffixes=('', '_home')
-)
-schedule_with_full_team_info = schedule_with_home_team_info.merge(
-    standings_df, left_on='away_team_id', right_on='team_id', suffixes=('', '_away')
-)
+# Load each dataset
+schedule_df = load_csv('nba_schedule.csv')
+results_df = load_csv('nba_results.csv')
+standings_df = load_csv('nba_standings.csv')
 
-# Drop unnecessary columns
-columns_to_drop = ['team_id', 'team_id_home', 'team_id_away']
-existing_columns = [col for col in columns_to_drop if col in schedule_with_full_team_info.columns]
-schedule_with_full_team_info = schedule_with_full_team_info.drop(columns=existing_columns)
+# Check if any DataFrame is empty and exit if critical files are missing data
+if schedule_df.empty or results_df.empty or standings_df.empty:
+    print("One or more input files are empty. Please check the data files.")
+else:
+    # Merge schedule and results data on game_id
+    merged_df = pd.merge(
+        schedule_df, results_df,
+        on='game_id',
+        how='left', suffixes=('_schedule', '_results')
+    )
 
-# Display merged DataFrame preview
-print("Expanded Merged DataFrame preview:")
-print(schedule_with_full_team_info.head())
+    # Standings data will not merge directly due to missing home/away structure
+    # For demonstration, we'll simply add team standings info directly to the merged dataset
+    # Example approach: add standings data for teams if applicable in expanded format
 
-# Save the merged DataFrame with expanded features
-schedule_with_full_team_info.to_csv('nba_merged_data_expanded.csv', index=False)
-print("Expanded merged data saved to nba_merged_data_expanded.csv")
+    # Save the merged dataset
+    merged_df.to_csv('nba_merged_data.csv', index=False)
+    print("Merged data saved to nba_merged_data.csv")
+
+    # Optional: Preview the merged data
+    print("\nMerged DataFrame preview:")
+    print(merged_df.head())

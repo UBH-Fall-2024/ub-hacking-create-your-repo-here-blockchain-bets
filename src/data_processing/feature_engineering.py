@@ -1,30 +1,35 @@
 import pandas as pd
 
-# Load the expanded merged data
-schedule_with_full_team_info = pd.read_csv('nba_merged_data_expanded.csv')
+# Load the merged data
+merged_df = pd.read_csv('nba_merged_data.csv')
 
-# Feature 1: Win-loss ratio difference (home - away)
-schedule_with_full_team_info['win_loss_ratio_diff'] = (
-    schedule_with_full_team_info['win_loss_ratio'] - schedule_with_full_team_info['win_loss_ratio_away']
+# Extract date-related features from 'last_modified_schedule' if available
+if 'last_modified_schedule' in merged_df.columns:
+    merged_df['last_modified_schedule'] = pd.to_datetime(
+        merged_df['last_modified_schedule']
+    )
+    merged_df['day_of_week'] = merged_df['last_modified_schedule'].dt.dayofweek
+    merged_df['month'] = merged_df['last_modified_schedule'].dt.month
+
+# Using 'season_id_schedule' as the placeholder to create a feature
+# This is just an example; replace the logic as needed based on actual data
+merged_df['home_team_win_ratio'] = merged_df['season_id_schedule'].apply(
+    lambda x: 0.5  # Placeholder logic; replace with actual calculations if available
 )
 
-# Feature 2: Points scored vs. points allowed difference (home - away)
-schedule_with_full_team_info['points_scored_diff'] = (
-    schedule_with_full_team_info['avg_points_scored'] - schedule_with_full_team_info['avg_points_allowed_away']
-)
+# Add the 'win' column as the target variable
+# Here, 1 represents a home team win, and 0 represents an away team win
+# Ensure 'home_points' and 'away_points' columns are in 'nba_merged_data.csv'
+if 'home_points' in merged_df.columns and 'away_points' in merged_df.columns:
+    merged_df['win'] = merged_df.apply(
+        lambda row: 1 if row['home_points'] > row['away_points'] else 0, axis=1)
+else:
+    print("Warning: 'home_points' and/or 'away_points' columns missing. 'win' column not created.")
 
-# Feature 3: Points allowed difference (home - away)
-schedule_with_full_team_info['points_allowed_diff'] = (
-    schedule_with_full_team_info['avg_points_allowed'] - schedule_with_full_team_info['avg_points_scored_away']
-)
+# Save the feature-engineered dataset with the new 'win' target column
+merged_df.to_csv('nba_featured_data.csv', index=False)
+print("Feature-engineered data saved to nba_featured_data.csv")
 
-# Indicator for home game (already set to 1 as an example)
-schedule_with_full_team_info['is_home_game'] = 1
-
-# Display a preview of the feature-engineered data
-print("Feature-engineered data preview with expanded features:")
-print(schedule_with_full_team_info[['win_loss_ratio_diff', 'points_scored_diff', 'points_allowed_diff', 'is_home_game']].head())
-
-# Save the feature-engineered data with expanded features for model training
-schedule_with_full_team_info.to_csv('nba_featured_data_expanded.csv', index=False)
-print("Feature-engineered data with expanded features saved to nba_featured_data_expanded.csv")
+# Preview the engineered data
+print("\nFeature-engineered DataFrame preview:")
+print(merged_df.head())

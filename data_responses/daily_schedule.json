@@ -1,0 +1,249 @@
+{
+    "date": "2024-11-09",
+    "league": {
+        "id": "4353138d-4c22-4396-95d8-5f587d2df25c",
+        "name": "NBA",
+        "alias": "NBA"
+    },
+    "games": [
+        {
+            "id": "1328f8ad-2522-4783-a7d3-81fee0be534e",
+            "status": "scheduled",
+            "coverage": "full",
+            "scheduled": "2024-11-09T22:00:00Z",
+            "track_on_court": true,
+            "sr_id": "sr:match:52630629",
+            "reference": "0022400197",
+            "time_zones": {
+                "venue": "US/Central",
+                "home": "US/Central",
+                "away": "US/Mountain"
+            },
+            "venue": {
+                "id": "8a7580c0-4052-54d5-85cd-85aab6200acf",
+                "name": "Frost Bank Center",
+                "capacity": 18581,
+                "address": "1 AT&T Center Parkway",
+                "city": "San Antonio",
+                "state": "TX",
+                "zip": "78219",
+                "country": "USA",
+                "sr_id": "sr:venue:6112",
+                "location": {
+                    "lat": "29.426944",
+                    "lng": "-98.4375"
+                }
+            },
+            "broadcasts": [
+                {
+                    "network": "NBA TV",
+                    "type": "TV",
+                    "locale": "National",
+                    "channel": "216"
+                },
+                {
+                    "network": "KJZZ",
+                    "type": "TV",
+                    "locale": "Away"
+                },
+                {
+                    "network": "FDSSW",
+                    "type": "TV",
+                    "locale": "Home",
+                    "channel": "676"
+                }
+            ],
+            "home": {
+                "name": "San Antonio Spurs",
+                "alias": "SAS",
+                "id": "583ecd4f-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3429",
+                "reference": "1610612759"
+            },
+            "away": {
+                "name": "Utah Jazz",
+                "alias": "UTA",
+                "id": "583ece50-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3434",
+                "reference": "1610612762"
+            }
+        },
+        {
+            "id": "41a0d542-0a37-4489-8f9e-04029ca7369a",
+            "status": "scheduled",
+            "coverage": "full",
+            "scheduled": "2024-11-10T00:30:00Z",
+            "track_on_court": true,
+            "sr_id": "sr:match:52630889",
+            "reference": "0022400199",
+            "time_zones": {
+                "venue": "US/Eastern",
+                "home": "US/Eastern",
+                "away": "US/Eastern"
+            },
+            "venue": {
+                "id": "42cddf7a-0e1f-5f91-ae6f-c620582fdb01",
+                "name": "Rocket Mortgage FieldHouse",
+                "capacity": 19432,
+                "address": "1 Center Court",
+                "city": "Cleveland",
+                "state": "OH",
+                "zip": "44115",
+                "country": "USA",
+                "sr_id": "sr:venue:6132",
+                "location": {
+                    "lat": "41.496565",
+                    "lng": "-81.688265"
+                }
+            },
+            "broadcasts": [
+                {
+                    "network": "NBA TV",
+                    "type": "TV",
+                    "locale": "National",
+                    "channel": "216"
+                },
+                {
+                    "network": "YES",
+                    "type": "TV",
+                    "locale": "Away",
+                    "channel": "631"
+                },
+                {
+                    "network": "FDSOH",
+                    "type": "TV",
+                    "locale": "Home",
+                    "channel": "660"
+                }
+            ],
+            "home": {
+                "name": "Cleveland Cavaliers",
+                "alias": "CLE",
+                "id": "583ec773-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3432",
+                "reference": "1610612739"
+            },
+            "away": {
+                "name": "Brooklyn Nets",
+                "alias": "BKN",
+                "id": "583ec9d6-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3436",
+                "reference": "1610612751"
+            }
+        },
+        {
+            "id": "f14b4353-6e02-4d28-92b6-db2ab6b633b9",
+            "status": "scheduled",
+            "coverage": "full",
+            "scheduled": "2024-11-10T00:30:00Z",
+            "track_on_court": true,
+            "sr_id": "sr:match:52631909",
+            "reference": "0022400198",
+            "time_zones": {
+                "venue": "US/Eastern",
+                "home": "US/Eastern",
+                "away": "US/Central"
+            },
+            "venue": {
+                "id": "fd21f639-8a47-51ac-a5dd-590629d445cf",
+                "name": "State Farm Arena",
+                "capacity": 18118,
+                "address": "One Philips Drive",
+                "city": "Atlanta",
+                "state": "GA",
+                "zip": "30303",
+                "country": "USA",
+                "sr_id": "sr:venue:6916",
+                "location": {
+                    "lat": "33.757162",
+                    "lng": "-84.396352"
+                }
+            },
+            "broadcasts": [
+                {
+                    "network": "CHSN",
+                    "type": "TV",
+                    "locale": "Away",
+                    "channel": "665"
+                },
+                {
+                    "network": "FDSSE",
+                    "type": "TV",
+                    "locale": "Home",
+                    "channel": "649"
+                }
+            ],
+            "home": {
+                "name": "Atlanta Hawks",
+                "alias": "ATL",
+                "id": "583ecb8f-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3423",
+                "reference": "1610612737"
+            },
+            "away": {
+                "name": "Chicago Bulls",
+                "alias": "CHI",
+                "id": "583ec5fd-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3409",
+                "reference": "1610612741"
+            }
+        },
+        {
+            "id": "a3dc924b-929d-44b9-8c29-4f50bb017300",
+            "status": "scheduled",
+            "coverage": "full",
+            "scheduled": "2024-11-10T03:30:00Z",
+            "track_on_court": true,
+            "sr_id": "sr:match:52630553",
+            "reference": "0022400200",
+            "time_zones": {
+                "venue": "US/Pacific",
+                "home": "US/Pacific",
+                "away": "US/Eastern"
+            },
+            "venue": {
+                "id": "cf7b61b7-a868-4b39-ac60-ecad61e0721a",
+                "name": "Intuit Dome",
+                "capacity": 18000,
+                "address": "3930 W Century Blvd",
+                "city": "Inglewood",
+                "state": "CA",
+                "zip": "90303",
+                "country": "USA",
+                "sr_id": "sr:venue:79291"
+            },
+            "broadcasts": [
+                {
+                    "network": "NBA TV",
+                    "type": "TV",
+                    "locale": "National",
+                    "channel": "216"
+                },
+                {
+                    "network": "TSN",
+                    "type": "TV",
+                    "locale": "International"
+                },
+                {
+                    "network": "FDSSC",
+                    "type": "TV",
+                    "channel": "693"
+                }
+            ],
+            "home": {
+                "name": "LA Clippers",
+                "alias": "LAC",
+                "id": "583ecdfb-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3425",
+                "reference": "1610612746"
+            },
+            "away": {
+                "name": "Toronto Raptors",
+                "alias": "TOR",
+                "id": "583ecda6-fb46-11e1-82cb-f4ce4684ea4c",
+                "sr_id": "sr:team:3433",
+                "reference": "1610612761"
+            }
+        }
+    ]
+}
