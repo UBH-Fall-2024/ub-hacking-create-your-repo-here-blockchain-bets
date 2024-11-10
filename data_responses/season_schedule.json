@@ -8049,9 +8049,11 @@
         },
         {
             "id": "1328f8ad-2522-4783-a7d3-81fee0be534e",
-            "status": "scheduled",
+            "status": "closed",
             "coverage": "full",
             "scheduled": "2024-11-09T22:00:00Z",
+            "home_points": 110,
+            "away_points": 111,
             "track_on_court": true,
             "sr_id": "sr:match:52630629",
             "reference": "0022400197",
@@ -8111,7 +8113,7 @@
         },
         {
             "id": "41a0d542-0a37-4489-8f9e-04029ca7369a",
-            "status": "scheduled",
+            "status": "inprogress",
             "coverage": "full",
             "scheduled": "2024-11-10T00:30:00Z",
             "track_on_court": true,
@@ -8174,7 +8176,7 @@
         },
         {
             "id": "f14b4353-6e02-4d28-92b6-db2ab6b633b9",
-            "status": "scheduled",
+            "status": "inprogress",
             "coverage": "full",
             "scheduled": "2024-11-10T00:30:00Z",
             "track_on_court": true,
