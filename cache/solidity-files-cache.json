@@ -1,0 +1,41 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/leondanquah/BlockchainBets/ub-hacking-create-your-repo-here-blockchain-bets/contracts/SmartContract1.sol": {
+      "lastModificationDate": 1731238989513,
+      "contentHash": "742cb350248d7cb30a7fc8666e27691e",
+      "sourceName": "contracts/SmartContract1.sol",
+      "solcConfig": {
+        "version": "0.8.26",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.26"
+      ],
+      "artifacts": [
+        "PaymentContract"
+      ]
+    }
+  }
+}

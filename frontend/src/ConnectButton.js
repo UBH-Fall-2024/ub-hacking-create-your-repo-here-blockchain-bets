@@ -1,30 +1,23 @@
 // ConnectButton.js
 import React, { useState, useEffect } from 'react';
 import { BrowserProvider } from 'ethers';
-import './ConnectButton.css'; // Import the CSS file
+import WalletActions from './WalletActions';
+import './ConnectButton.css';
 
 function ConnectButton({ onWalletConnect }) {
   const [address, setAddress] = useState(null);
+  const [showWalletActions, setShowWalletActions] = useState(false);
 
   // Function to connect to MetaMask
   const connectToMetaMask = async () => {
     if (window.ethereum) {
       try {
-        // Request account access from MetaMask
         await window.ethereum.request({ method: 'eth_requestAccounts' });
-        
-        // Create a provider instance
         const provider = new BrowserProvider(window.ethereum);
         const signer = await provider.getSigner();
-        
-        // Get the user's address and save it
         const userAddress = await signer.getAddress();
         setAddress(userAddress);
-
-        // Store the address in localStorage
         localStorage.setItem('walletAddress', userAddress);
-
-        // Notify parent component of connection status
         onWalletConnect(true);
       } catch (error) {
         console.error('Connection error:', error);
@@ -34,11 +27,17 @@ function ConnectButton({ onWalletConnect }) {
     }
   };
 
-  // Function to disconnect and clear the wallet address
+  // Function to disconnect the wallet
   const disconnect = () => {
     localStorage.removeItem('walletAddress');
     setAddress(null);
-    onWalletConnect(false); // Notify parent component of disconnection
+    setShowWalletActions(false);
+    onWalletConnect(false);
+  };
+
+  // Toggle dropdown for WalletActions
+  const toggleWalletActions = () => {
+    setShowWalletActions((prev) => !prev);
   };
 
   // Effect to load address from localStorage on component mount
@@ -46,7 +45,7 @@ function ConnectButton({ onWalletConnect }) {
     const savedAddress = localStorage.getItem('walletAddress');
     if (savedAddress) {
       setAddress(savedAddress);
-      onWalletConnect(true); // Restore connection status on page load
+      onWalletConnect(true);
     }
   }, [onWalletConnect]);
 
@@ -56,6 +55,10 @@ function ConnectButton({ onWalletConnect }) {
         <>
           <span className="connected-address">Connected: {address}</span>
           <button className="connect-button" onClick={disconnect}>Disconnect</button>
+          <button className="dropdown-button" onClick={toggleWalletActions}>
+            Wallet Options
+          </button>
+          {showWalletActions && <WalletActions />}
         </>
       ) : (
         <button className="connect-button" onClick={connectToMetaMask}>Connect to MetaMask</button>
@@ -65,4 +68,3 @@ function ConnectButton({ onWalletConnect }) {
 }
 
 export default ConnectButton;
-
