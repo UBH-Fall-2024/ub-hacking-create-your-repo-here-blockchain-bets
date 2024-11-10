@@ -6,7 +6,6 @@ import LiveScores from './LiveScores';
 import BettingPage from './BettingPage';
 import './App.css';
 
-
 function App() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
 
@@ -20,6 +19,8 @@ function App() {
         <ConnectButton onWalletConnect={handleWalletConnection} />
         <header className="App-header">
           <h1>NBA Live Betting</h1>
+        </header>
+        <main>
           <Routes>
             <Route
               path="/"
@@ -27,10 +28,11 @@ function App() {
             />
             <Route path="/betting" element={<BettingPage />} />
           </Routes>
-        </header>
+        </main>
       </div>
     </Router>
   );
 }
 
 export default App;
+

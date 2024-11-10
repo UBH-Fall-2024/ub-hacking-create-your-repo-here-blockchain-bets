@@ -1,19 +1,20 @@
 // LiveScores.js
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import './LiveScores.css';
-
 
 function LiveScores({ isWalletConnected }) {
   const [liveScores, setLiveScores] = useState([]);
-  const navigate = useNavigate(); // Initialize navigation
+  const navigate = useNavigate(); // Use navigate for routing
 
   useEffect(() => {
     if (isWalletConnected) {
       async function fetchScores() {
         try {
-          const response = await fetch('http://127.0.0.1:5000/api/live_scores'); // Fetch from Flask backend
-          if (!response.ok) throw new Error('Network response was not ok');
+          const response = await fetch('http://127.0.0.1:5000/api/live_scores');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
           const data = await response.json();
           setLiveScores(data);
         } catch (error) {
@@ -26,9 +27,9 @@ function LiveScores({ isWalletConnected }) {
     }
   }, [isWalletConnected]);
 
+  // Handler for navigating to the betting page with selected game data
   const handleGameClick = (game) => {
-    // Redirect to BettingPage with game info
-    navigate('/betting', { state: { game } });
+    navigate('/betting', { state: { game } }); // Navigate with game data in state
   };
 
   return (
@@ -38,12 +39,7 @@ function LiveScores({ isWalletConnected }) {
         liveScores.length > 0 ? (
           <ul>
             {liveScores.map((game, index) => (
-              <li
-                key={index}
-                className="game-item"
-                onClick={() => handleGameClick(game)}
-                style={{ cursor: 'pointer' }}
-              >
+              <li key={index} className="game-item" onClick={() => handleGameClick(game)}>
                 <p><strong>{game.home.name}</strong> vs <strong>{game.away.name}</strong></p>
                 <p>Score: {game.home_points} - {game.away_points}</p>
               </li>
