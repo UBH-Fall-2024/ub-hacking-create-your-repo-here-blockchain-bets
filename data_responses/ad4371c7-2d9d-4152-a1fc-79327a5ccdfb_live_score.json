@@ -1,0 +1,52 @@
+{
+    "id": "ad4371c7-2d9d-4152-a1fc-79327a5ccdfb",
+    "status": "scheduled",
+    "coverage": "full",
+    "scheduled": "2024-11-10T22:00:00+00:00",
+    "track_on_court": true,
+    "reference": "0022400203",
+    "sr_id": "sr:match:52630883",
+    "broadcasts": [
+        {
+            "type": "TV",
+            "locale": "Away",
+            "network": "MSG",
+            "channel": "634"
+        },
+        {
+            "type": "TV",
+            "locale": "Home",
+            "network": "FDSIN",
+            "channel": "671-4"
+        }
+    ],
+    "time_zones": {
+        "venue": "US/Eastern",
+        "home": "US/Eastern",
+        "away": "US/Eastern"
+    },
+    "season": {
+        "id": "970c9b10-2985-4718-b89d-96cfdc0a5e98",
+        "year": 2024,
+        "type": "REG",
+        "name": "Regular Season"
+    },
+    "home": {
+        "name": "Indiana Pacers",
+        "alias": "IND",
+        "market": "Indiana",
+        "id": "583ec7cd-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3419",
+        "reference": "1610612754"
+    },
+    "away": {
+        "name": "New York Knicks",
+        "alias": "NYK",
+        "market": "New York",
+        "id": "583ec70e-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3421",
+        "reference": "1610612752"
+    }
+}

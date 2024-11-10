@@ -1,0 +1,116 @@
+/* Overall background and text styling */
+body, .App {
+  background-color: #1b1f23; /* Dark gray background similar to Bet365 */
+  color: #e1e1e1; /* Light gray text for readability */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header and main title styling */
+.App-header {
+  text-align: center;
+  padding: 20px;
+  color: #e1e1e1;
+}
+
+.App-header h1 {
+  color: #ffffff;
+  font-size: 2em;
+  margin: 0;
+}
+
+/* Styling for the MetaMask connect button */
+.connect-button-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  text-align: right;
+}
+
+.connect-button {
+  padding: 8px 16px;
+  background-color: #2dba4e; /* Green button color similar to Bet365 */
+  color: #ffffff; /* White text for visibility */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.connect-button:hover {
+  background-color: #239a3b; /* Darker green on hover */
+}
+
+/* Address display styling */
+.connected-address {
+  color: #ffffff; /* Bright white text for maximum contrast */
+  font-size: 0.85em; /* Adjust font size to make it visible but not too large */
+  font-weight: 600; /* Increase font weight for better readability */
+  margin-right: 10px;
+  background-color: rgb(255, 255, 255); /* Light translucent background for added contrast */
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+/* Live Scores component container */
+.live-scores {
+  padding: 20px;
+  background-color: #2a2c31; /* Dark background for content */
+  border: 1px solid #3a3d42;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.live-scores h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Styling for the list of games */
+.live-scores ul {
+  list-style: none;
+  padding: 0;
+}
+
+.live-scores li {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #35373c; /* Darker background for individual items */
+  border: 1px solid #44474d;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.live-scores p {
+  margin: 0;
+  color: #e1e1e1; /* Light gray text */
+}
+
+/* Button styling within the Live Scores component */
+.live-scores button {
+  padding: 5px 12px;
+  background-color: #2dba4e; /* Green button for betting */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.live-scores button:hover {
+  background-color: #239a3b; /* Darker green on hover */
+}
+
+/* Additional styling for empty state or messages */
+.no-live-games {
+  color: #e1e1e1;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,52 @@
+{
+    "id": "199152c5-8141-420e-8626-10eed7202edd",
+    "status": "scheduled",
+    "coverage": "full",
+    "scheduled": "2024-11-11T00:00:00+00:00",
+    "track_on_court": true,
+    "reference": "0022400207",
+    "sr_id": "sr:match:52630043",
+    "broadcasts": [
+        {
+            "type": "TV",
+            "locale": "Away",
+            "network": "NBCS-BA",
+            "channel": "696"
+        },
+        {
+            "type": "TV",
+            "locale": "Home",
+            "network": "FDSOK",
+            "channel": "675"
+        }
+    ],
+    "time_zones": {
+        "venue": "US/Central",
+        "home": "US/Central",
+        "away": "US/Pacific"
+    },
+    "season": {
+        "id": "970c9b10-2985-4718-b89d-96cfdc0a5e98",
+        "year": 2024,
+        "type": "REG",
+        "name": "Regular Season"
+    },
+    "home": {
+        "name": "Oklahoma City Thunder",
+        "alias": "OKC",
+        "market": "Oklahoma City",
+        "id": "583ecfff-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3418",
+        "reference": "1610612760"
+    },
+    "away": {
+        "name": "Golden State Warriors",
+        "alias": "GSW",
+        "market": "Golden State",
+        "id": "583ec825-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3428",
+        "reference": "1610612744"
+    }
+}

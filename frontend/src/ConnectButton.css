@@ -1,0 +1,25 @@
+/* ConnectButton.css */
+
+.connect-button-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    text-align: right;
+  }
+  
+  .connect-button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .connected-address {
+    color: #333;
+    margin-right: 10px;
+    font-size: 0.9em;
+  }
+  
