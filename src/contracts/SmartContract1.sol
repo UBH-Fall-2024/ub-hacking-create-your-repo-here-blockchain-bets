@@ -9,7 +9,7 @@ contract SportsBetting {
     // Enum to represent the status of a game 0 = Not Started, Ongoing is 1 and 2 is Finished. 
     enum GameStatus { NotStarted, Ongoing, Finished }
 
-    // Enum to represent betting options. 
+    // Enum to represent betting options. TEAM A = 0  TEAM B = 1 ; 
     enum BetOption { TeamA, TeamB }
 
     // Struct to store information about each game

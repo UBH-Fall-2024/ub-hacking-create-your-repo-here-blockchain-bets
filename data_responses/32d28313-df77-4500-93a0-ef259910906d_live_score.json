@@ -1,0 +1,52 @@
+{
+    "id": "32d28313-df77-4500-93a0-ef259910906d",
+    "status": "scheduled",
+    "coverage": "full",
+    "scheduled": "2024-11-10T20:30:00+00:00",
+    "track_on_court": true,
+    "reference": "0022400202",
+    "sr_id": "sr:match:52630263",
+    "broadcasts": [
+        {
+            "type": "TV",
+            "locale": "Away",
+            "network": "NBCS-BOS",
+            "channel": "630"
+        },
+        {
+            "type": "TV",
+            "locale": "Home",
+            "network": "FDSWI",
+            "channel": "669"
+        }
+    ],
+    "time_zones": {
+        "venue": "US/Central",
+        "home": "US/Central",
+        "away": "US/Eastern"
+    },
+    "season": {
+        "id": "970c9b10-2985-4718-b89d-96cfdc0a5e98",
+        "year": 2024,
+        "type": "REG",
+        "name": "Regular Season"
+    },
+    "home": {
+        "name": "Milwaukee Bucks",
+        "alias": "MIL",
+        "market": "Milwaukee",
+        "id": "583ecefd-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3410",
+        "reference": "1610612749"
+    },
+    "away": {
+        "name": "Boston Celtics",
+        "alias": "BOS",
+        "market": "Boston",
+        "id": "583eccfa-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3422",
+        "reference": "1610612738"
+    }
+}

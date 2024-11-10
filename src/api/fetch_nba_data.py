@@ -18,24 +18,25 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def fetch_data(endpoint, filename, retries=3):
     url = f"{BASE_URL}/{endpoint}?api_key={API_KEY}"
+    print(f"Fetching data from {url}...")
     for attempt in range(retries):
-        response = requests.get(url, headers=HEADERS)
-        if response.status_code == 200:
-            with open(os.path.join(OUTPUT_DIR, filename), "w") as f:
-                json.dump(response.json(), f, indent=4)
-            print(f"Data saved to {filename}")
-            return response.json()
-        elif response.status_code == 429:
-            print(
-                f"Rate limit hit. Retrying after delay... (Attempt {attempt + 1}/{retries})")
-            time.sleep(2 ** attempt)  # Exponential backoff
-        else:
-            print(
-                f"Failed to fetch data from {url} - Status code: {response.status_code}")
-            return None
-    print(
-        f"Failed to fetch data from {url} after {retries} attempts due to rate limiting.")
+        try:
+            response = requests.get(url, headers=HEADERS)
+            if response.status_code == 200:
+                with open(os.path.join(OUTPUT_DIR, filename), "w") as f:
+                    json.dump(response.json(), f, indent=4)
+                print(f"Data saved to {filename}")
+                return response.json()
+            elif response.status_code == 429:
+                print(f"Rate limit hit. Retrying after delay... (Attempt {attempt + 1}/{retries})")
+                time.sleep(2 ** attempt)  # Exponential backoff
+            else:
+                print(f"Failed to fetch data from {url} - Status code: {response.status_code}")
+        except Exception as e:
+            print(f"Error during data fetch: {e}")
+    print(f"Failed to fetch data from {url} after {retries} attempts.")
     return None
+
 
 # Function to fetch today's schedule and game IDs
 

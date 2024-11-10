@@ -1,0 +1,52 @@
+{
+    "id": "4c0fba4e-16c6-4578-8265-22e9e77ed70f",
+    "status": "scheduled",
+    "coverage": "full",
+    "scheduled": "2024-11-10T23:00:00+00:00",
+    "track_on_court": true,
+    "reference": "0022400204",
+    "sr_id": "sr:match:52631237",
+    "broadcasts": [
+        {
+            "type": "TV",
+            "locale": "Away",
+            "network": "MNMT",
+            "channel": "642"
+        },
+        {
+            "type": "TV",
+            "locale": "Home",
+            "network": "FDSFL",
+            "channel": "654"
+        }
+    ],
+    "time_zones": {
+        "venue": "US/Eastern",
+        "home": "US/Eastern",
+        "away": "US/Eastern"
+    },
+    "season": {
+        "id": "970c9b10-2985-4718-b89d-96cfdc0a5e98",
+        "year": 2024,
+        "type": "REG",
+        "name": "Regular Season"
+    },
+    "home": {
+        "name": "Orlando Magic",
+        "alias": "ORL",
+        "market": "Orlando",
+        "id": "583ed157-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3437",
+        "reference": "1610612753"
+    },
+    "away": {
+        "name": "Washington Wizards",
+        "alias": "WAS",
+        "market": "Washington",
+        "id": "583ec8d4-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3431",
+        "reference": "1610612764"
+    }
+}

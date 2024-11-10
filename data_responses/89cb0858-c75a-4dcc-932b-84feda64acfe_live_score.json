@@ -1,0 +1,52 @@
+{
+    "id": "89cb0858-c75a-4dcc-932b-84feda64acfe",
+    "status": "scheduled",
+    "coverage": "full",
+    "scheduled": "2024-11-11T00:00:00+00:00",
+    "track_on_court": true,
+    "reference": "0022400206",
+    "sr_id": "sr:match:52632095",
+    "broadcasts": [
+        {
+            "type": "TV",
+            "locale": "Home",
+            "network": "FDSN",
+            "channel": "668"
+        },
+        {
+            "type": "TV",
+            "locale": "Away",
+            "network": "FDSSUN",
+            "channel": "653"
+        }
+    ],
+    "time_zones": {
+        "venue": "US/Central",
+        "home": "US/Central",
+        "away": "US/Eastern"
+    },
+    "season": {
+        "id": "970c9b10-2985-4718-b89d-96cfdc0a5e98",
+        "year": 2024,
+        "type": "REG",
+        "name": "Regular Season"
+    },
+    "home": {
+        "name": "Minnesota Timberwolves",
+        "alias": "MIN",
+        "market": "Minnesota",
+        "id": "583eca2f-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3426",
+        "reference": "1610612750"
+    },
+    "away": {
+        "name": "Miami Heat",
+        "alias": "MIA",
+        "market": "Miami",
+        "id": "583ecea6-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3435",
+        "reference": "1610612748"
+    }
+}

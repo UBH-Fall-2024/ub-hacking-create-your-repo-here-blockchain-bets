@@ -1,0 +1,51 @@
+/* App.css or LiveScores.css */
+
+/* Container for the live scores component */
+.live-scores {
+    background-color: #2e2e2e; /* Dark gray background to match Bet365 theme */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    color: #d4d4d4; /* Light text color for readability */
+  }
+  
+  .live-scores h2 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Styling for list of games */
+  .live-scores ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .game-item {
+    background-color: #3a3a3a; /* Slightly lighter background for each game */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .game-item p {
+    margin: 0;
+  }
+  
+  .game-item strong {
+    color: #b8e986; /* Bet365-inspired green for team names */
+  }
+  
+  .live-scores p {
+    text-align: center;
+    color: #e1e1e1;
+    font-size: 1em;
+  }
+  
+  

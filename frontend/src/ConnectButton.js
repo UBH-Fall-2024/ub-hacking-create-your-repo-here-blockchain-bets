@@ -1,7 +1,9 @@
+// ConnectButton.js
 import React, { useState, useEffect } from 'react';
 import { BrowserProvider } from 'ethers';
+import './ConnectButton.css'; // Import the CSS file
 
-function ConnectButton() {
+function ConnectButton({ onWalletConnect }) {
   const [address, setAddress] = useState(null);
 
   // Function to connect to MetaMask
@@ -21,6 +23,9 @@ function ConnectButton() {
 
         // Store the address in localStorage
         localStorage.setItem('walletAddress', userAddress);
+
+        // Notify parent component of connection status
+        onWalletConnect(true);
       } catch (error) {
         console.error('Connection error:', error);
       }
@@ -33,6 +38,7 @@ function ConnectButton() {
   const disconnect = () => {
     localStorage.removeItem('walletAddress');
     setAddress(null);
+    onWalletConnect(false); // Notify parent component of disconnection
   };
 
   // Effect to load address from localStorage on component mount
@@ -40,21 +46,23 @@ function ConnectButton() {
     const savedAddress = localStorage.getItem('walletAddress');
     if (savedAddress) {
       setAddress(savedAddress);
+      onWalletConnect(true); // Restore connection status on page load
     }
-  }, []);
+  }, [onWalletConnect]);
 
   return (
-    <div>
+    <div className="connect-button-container">
       {address ? (
         <>
-          <p>Connected: {address}</p>
-          <button onClick={disconnect}>Disconnect</button>
+          <span className="connected-address">Connected: {address}</span>
+          <button className="connect-button" onClick={disconnect}>Disconnect</button>
         </>
       ) : (
-        <button onClick={connectToMetaMask}>Connect to MetaMask</button>
+        <button className="connect-button" onClick={connectToMetaMask}>Connect to MetaMask</button>
       )}
     </div>
   );
 }
 
 export default ConnectButton;
+

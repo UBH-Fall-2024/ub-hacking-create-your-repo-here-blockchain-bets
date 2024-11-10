@@ -1,0 +1,51 @@
+{
+    "id": "87f7c4b4-f63d-468b-86c2-629dca0793be",
+    "status": "scheduled",
+    "coverage": "full",
+    "scheduled": "2024-11-11T00:00:00+00:00",
+    "track_on_court": true,
+    "reference": "0022400205",
+    "sr_id": "sr:match:52632183",
+    "broadcasts": [
+        {
+            "type": "TV",
+            "locale": "Home",
+            "network": "NBCS-PH"
+        },
+        {
+            "type": "TV",
+            "locale": "Away",
+            "network": "FDSSE",
+            "channel": "649"
+        }
+    ],
+    "time_zones": {
+        "venue": "US/Eastern",
+        "home": "US/Eastern",
+        "away": "US/Eastern"
+    },
+    "season": {
+        "id": "970c9b10-2985-4718-b89d-96cfdc0a5e98",
+        "year": 2024,
+        "type": "REG",
+        "name": "Regular Season"
+    },
+    "home": {
+        "name": "Philadelphia 76ers",
+        "alias": "PHI",
+        "market": "Philadelphia",
+        "id": "583ec87d-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3420",
+        "reference": "1610612755"
+    },
+    "away": {
+        "name": "Charlotte Hornets",
+        "alias": "CHA",
+        "market": "Charlotte",
+        "id": "583ec97e-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3430",
+        "reference": "1610612766"
+    }
+}

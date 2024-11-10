@@ -1,0 +1,52 @@
+{
+    "id": "127df98c-ab44-46d0-a48a-a7481f0a5aab",
+    "status": "scheduled",
+    "coverage": "full",
+    "scheduled": "2024-11-10T20:00:00+00:00",
+    "track_on_court": true,
+    "reference": "0022400201",
+    "sr_id": "sr:match:52630927",
+    "broadcasts": [
+        {
+            "type": "TV",
+            "locale": "Away",
+            "network": "SCHN",
+            "channel": "674"
+        },
+        {
+            "type": "TV",
+            "locale": "Home",
+            "network": "FDSDET",
+            "channel": "663"
+        }
+    ],
+    "time_zones": {
+        "venue": "US/Eastern",
+        "home": "US/Eastern",
+        "away": "US/Central"
+    },
+    "season": {
+        "id": "970c9b10-2985-4718-b89d-96cfdc0a5e98",
+        "year": 2024,
+        "type": "REG",
+        "name": "Regular Season"
+    },
+    "home": {
+        "name": "Detroit Pistons",
+        "alias": "DET",
+        "market": "Detroit",
+        "id": "583ec928-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3424",
+        "reference": "1610612765"
+    },
+    "away": {
+        "name": "Houston Rockets",
+        "alias": "HOU",
+        "market": "Houston",
+        "id": "583ecb3a-fb46-11e1-82cb-f4ce4684ea4c",
+        "points": 0,
+        "sr_id": "sr:team:3412",
+        "reference": "1610612745"
+    }
+}
