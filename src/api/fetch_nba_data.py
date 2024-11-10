@@ -89,7 +89,7 @@ def fetch_live_game_score(game_id, retries=3):
         f"Failed to fetch live score for Game ID: {game_id} after {retries} attempts due to rate limiting.")
     return None
 
-# Function to fetch live scores for all games scheduled today
+# Function to fetch live scores for all games scheduled for today
 
 
 def fetch_live_scores_for_today():

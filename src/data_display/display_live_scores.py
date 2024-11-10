@@ -48,5 +48,5 @@ for json_file in json_files:
     with open(file_path, "r") as f:
         game_data = json.load(f)
 
-    # Display formatted game info
+    # Display the formatted game info
     print(display_game_info(game_data))
