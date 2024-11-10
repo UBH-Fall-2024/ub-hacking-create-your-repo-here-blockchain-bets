@@ -18,7 +18,10 @@ function App() {
       <div className="App">
         <ConnectButton onWalletConnect={handleWalletConnection} />
         <header className="App-header">
-          <h1>NBA Live Betting</h1>
+        <div className="main-heading-container">
+            <h1 className="main-heading">Blockchain Bets 💰</h1>
+            </div>
+
         </header>
         <main>
           <Routes>

@@ -34,7 +34,9 @@ function LiveScores({ isWalletConnected }) {
 
   return (
     <div className="live-scores">
-      <h2>Live NBA Scores</h2>
+      <div className="heading-container">
+        <h2 className="animated-heading">Live NBA Scores</h2>
+        </div>
       {isWalletConnected ? (
         liveScores.length > 0 ? (
           <ul>

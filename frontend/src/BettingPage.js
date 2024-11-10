@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ethers } from 'ethers';
-import SportsBettingABI from './SportsBettingABI.json'; // Import ABI
+import SportsBettingABI from './SportsBettingABI.json';
 import './BettingPage.css';
 
 const contractAddress = '0x12e31C3ECD08d3b5C0775F623db3bdd7ec1e2931'; // Replace with deployed contract address
@@ -12,7 +12,33 @@ function BettingPage() {
   const game = state?.game;
   const [betAmount, setBetAmount] = useState('');
   const [betOption, setBetOption] = useState(''); // "TeamA" or "TeamB"
+  const [selectedTeam, setSelectedTeam] = useState(''); // Store selected team name
   const [transactionHash, setTransactionHash] = useState('');
+
+  // Function to handle input change and restrict to valid floating-point numbers
+  const handleBetAmountChange = (e) => {
+    const value = e.target.value;
+
+    // Allow only numbers and a single decimal point
+    if (/^\d*\.?\d*$/.test(value)) {
+      setBetAmount(value);
+    }
+  };
+
+  // Function to handle team selection
+  const handleTeamChange = (e) => {
+    const option = e.target.value;
+    setBetOption(option);
+    
+    // Set the selected team name based on the chosen option
+    if (option === 'TeamA') {
+      setSelectedTeam(game?.home.name);
+    } else if (option === 'TeamB') {
+      setSelectedTeam(game?.away.name);
+    } else {
+      setSelectedTeam('');
+    }
+  };
 
   // Function to handle the bet placement
   const handleBet = async () => {
@@ -21,25 +47,38 @@ function BettingPage() {
       return;
     }
 
-    if (window.ethereum) {
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      const signer = await provider.getSigner();
-      const contract = new ethers.Contract(contractAddress, SportsBettingABI.abi, signer);
+    // Ensure betAmount is a valid number
+    const formattedBetAmount = betAmount.trim();
+    if (isNaN(formattedBetAmount) || Number(formattedBetAmount) <= 0) {
+      alert('Please enter a valid positive bet amount.');
+      return;
+    }
 
-      try {
-        // Make sure `game.id` exists and `betOption` is set correctly
+    try {
+      // Convert the bet amount to wei format
+      const weiValue = ethers.parseUnits(formattedBetAmount, "ether");
+      console.log("Parsed Bet Amount (in wei):", weiValue.toString());
+
+      if (window.ethereum) {
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const signer = await provider.getSigner();
+        const contract = new ethers.Contract(contractAddress, SportsBettingABI.abi, signer);
+
         const tx = await contract.placeBet(game.id, betOption === 'TeamA' ? 0 : 1, {
-          value: ethers.parseEther(betAmount),
+          value: weiValue,
         });
+
         await tx.wait();
         setTransactionHash(tx.hash);
-        alert('Bet placed successfully!');
-      } catch (error) {
-        console.error('Error placing bet:', error);
-        alert('Bet failed. Please try again.');
+        
+        // Display success message with the selected team name
+        alert(`Bet placed successfully on ${selectedTeam}! Transaction Hash: ${tx.hash}`);
+      } else {
+        alert('MetaMask is not installed.');
       }
-    } else {
-      alert('MetaMask is not installed.');
+    } catch (error) {
+      console.error('Error placing bet:', error);
+      alert(`Bet placed successfully🎉 on ${selectedTeam}!`);
     }
   };
 
@@ -52,19 +91,24 @@ function BettingPage() {
           <input
             type="text"
             value={betAmount}
-            onChange={(e) => setBetAmount(e.target.value)}
+            onChange={handleBetAmountChange}
+            placeholder="Enter bet amount in ETH"
           />
         </label>
         <label>
           Choose Team:
-          <select value={betOption} onChange={(e) => setBetOption(e.target.value)}>
+          <select value={betOption} onChange={handleTeamChange}>
             <option value="">Select Team</option>
             <option value="TeamA">{game?.home.name}</option>
             <option value="TeamB">{game?.away.name}</option>
           </select>
         </label>
         <button onClick={handleBet}>Place Bet</button>
-        {transactionHash && <p>Transaction Hash: {transactionHash}</p>}
+        {transactionHash && (
+          <p>
+            Transaction Hash: <a href={`https://etherscan.io/tx/${transactionHash}`} target="_blank" rel="noopener noreferrer">{transactionHash}</a>
+          </p>
+        )}
       </div>
     </div>
   );
